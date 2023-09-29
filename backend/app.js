@@ -18,7 +18,7 @@ app.use((req, res, next)=>{
 })
 
 // Allow requests from specific origins
-const allowedOrigins = ['http://127.0.0.1:3000', 'http://localhost:3000','https://peaceful-florentine-01e68f.netlify.app'];
+const allowedOrigins = ['http://127.0.0.1:3000', 'http://localhost:3000','https://zesty-gingersnap-8b2af9.netlify.app'];
 const corsOptions = {
   origin: function (origin, callback) {
     if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
