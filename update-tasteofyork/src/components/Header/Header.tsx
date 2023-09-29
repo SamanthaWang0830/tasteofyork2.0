@@ -8,7 +8,6 @@ import { useNavigate } from 'react-router-dom';
 
 const Header: React.FC=()=>{
     const token= useSelector((state:RootState)=>state.user.token)
-    const avatar= useSelector((state:RootState)=>state.user.avatar)
     const userId= useSelector((state:RootState)=>state.user.userId)
     const navigate= useNavigate()
     

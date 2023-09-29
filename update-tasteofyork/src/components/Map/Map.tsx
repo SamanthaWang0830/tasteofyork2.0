@@ -11,7 +11,7 @@ interface MapProps{
 
 const Map: React.FC<MapProps> = ({lat, lng}) => {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: "AIzaSyAULYT530LbeVT3vC4yynoj67VmkuPhfh0",
+    googleMapsApiKey: import.meta.env.VITE_GoogleMapsApiKey
   });
   const center ={lat, lng}
 
