@@ -4,7 +4,7 @@ import MealCard from '../../components/MealCard/MealCard';
 import CreateMealOrUpdateCard from '../../components/CreateOrUpdateMealCard/CreateOrUpdateMealCard';
 import useHttpClient from '../../hooks/http-hook';
 import Backdrop from '@mui/material/Backdrop';
-import { useSelector, useDispatch} from 'react-redux';
+import { useSelector} from 'react-redux';
 import { RootState } from '../../store/store';
 
 const StudentsPicksPage: React.FC=()=>{
@@ -14,7 +14,7 @@ const StudentsPicksPage: React.FC=()=>{
     const token= useSelector((state: RootState)=>state.user.token)
     const forceRender = useSelector((state: RootState) => state.meal.forceRender);
     //fetch all the meals from mongoDB
-    const {isLoading, loadingError,sendRequest}= useHttpClient()
+    const {sendRequest}= useHttpClient()
     const [force,setForce]=useState(0)
     const [loadedPicks, setLoadedPicks]=useState([])
 

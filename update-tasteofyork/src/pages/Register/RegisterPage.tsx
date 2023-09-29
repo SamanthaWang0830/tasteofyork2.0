@@ -1,11 +1,10 @@
-import React, {useEffect, useState}  from 'react';
+import React, {useState}  from 'react';
 import { Link } from 'react-router-dom';
 import './RegisterPage.styles.scss'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import ImageUpload from '../../components/ImageUpload/ImageUpload';
-import { RootState } from '../../store/store';
 import { login } from '../../store/userSlice';
-import { setFile, setPreviewUrl } from '../../store/fileSlice';
+import { setPreviewUrl } from '../../store/fileSlice';
 import useHttpClient from '../../hooks/http-hook';
 
 
@@ -23,7 +22,9 @@ const RegisterPage: React.FC=()=>{
         setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value}));
     };
 
-    const {isLoading, loadingError,sendRequest}= useHttpClient()
+    console.log(inputs)
+
+    const {sendRequest}= useHttpClient()
 
     const handleRegister = async (e: React.FormEvent<HTMLFormElement>)=> {
         e.preventDefault();

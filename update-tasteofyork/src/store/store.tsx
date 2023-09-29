@@ -1,4 +1,3 @@
-import React from 'react';
 import { configureStore } from '@reduxjs/toolkit';
 import mapButtonReducer from './mapButtonSlice';
 import mealReducer from './mealSlice';

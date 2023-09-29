@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './CreateOrUpdateMealCard.styles.scss'
 import ImageUpload from '../ImageUpload/ImageUpload';
 import { useDispatch, useSelector} from 'react-redux';
@@ -30,7 +30,7 @@ const CreateMealOrUpdateCard: React.FC<CreateMealOrUpdateCardProps>=({isUpdate, 
     const name= useSelector((state: RootState)=>state.meal.name)
     const description= useSelector((state: RootState)=>state.meal.description)
     //const file= useSelector((state: RootState)=>state.file.file)
-    const {isLoading, loadingError,sendRequest}= useHttpClient()
+    const {sendRequest}= useHttpClient()
 
     //不管是update还是create都要用这个键
     const handleMealSubmit=async (e: React.FormEvent<HTMLFormElement>)=>{
@@ -40,7 +40,7 @@ const CreateMealOrUpdateCard: React.FC<CreateMealOrUpdateCardProps>=({isUpdate, 
         const description = data.get('description');
         if(isUpdate){
             try {
-                const responseData= await sendRequest(import.meta.env.VITE_BACKEND_URL+`/meals/${updatedMealId}`,"PATCH",JSON.stringify({
+                await sendRequest(import.meta.env.VITE_BACKEND_URL+`/meals/${updatedMealId}`,"PATCH",JSON.stringify({
                   name,
                   description
                 }), {"Content-Type":"application/json", Authorization:"Bearer "+token})

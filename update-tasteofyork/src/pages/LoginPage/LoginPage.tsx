@@ -44,7 +44,7 @@ const LoginPage: React.FC=()=>{
 
     //
     const dispatch = useDispatch();
-    const {isLoading, loadingError,sendRequest}= useHttpClient()
+    const {sendRequest}= useHttpClient()
 
     const [inputs, setInputs] = useState({
       password: "",

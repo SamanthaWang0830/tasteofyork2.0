@@ -5,9 +5,8 @@ import './MealCard.styles.scss'
 import {useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store/store';
 import useHttpClient from '../../hooks/http-hook';
-import { setForceRender,setDescription, setName } from '../../store/mealSlice';
+import { setDescription, setName } from '../../store/mealSlice';
 import { openButton, setUpdatedMealId} from '../../store/mealSlice';
-import Backdrop from '@mui/material/Backdrop';
 
 interface MealCardProps{
     pick:any;
@@ -23,7 +22,7 @@ const MealCard: React.FC<MealCardProps>=({pick, dislikeHandler,likeHandler, dele
     
     const dispatch = useDispatch();
 
-    const {isLoading, loadingError,sendRequest}= useHttpClient()
+    const {sendRequest}= useHttpClient()
     
     const fetchMealOriginalInfoHandler=async()=>{
         // when click the update button, need let the backdrop show up

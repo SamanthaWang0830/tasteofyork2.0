@@ -5,7 +5,7 @@ import useHttpClient from '../../hooks/http-hook';
 import MealCard from '../../components/MealCard/MealCard';
 import { useSelector, useDispatch} from 'react-redux';
 import { RootState } from '../../store/store';
-import { openButton, setUpdatedMealId, setForceRender} from '../../store/mealSlice';
+import { setForceRender} from '../../store/mealSlice';
 import CreateMealOrUpdateCard from '../../components/CreateOrUpdateMealCard/CreateOrUpdateMealCard'
 import Backdrop from '@mui/material/Backdrop';
 
@@ -19,7 +19,7 @@ const MyMealsPage: React.FC=()=>{
     const {userId}= useParams<{ userId: string }>()
 
     const [loadedMeal, setLoadedMeal]=useState([])
-    const {isLoading, loadingError,sendRequest}= useHttpClient()
+    const {sendRequest}= useHttpClient()
 
     useEffect(()=>{
         const fetchMeals=async()=>{

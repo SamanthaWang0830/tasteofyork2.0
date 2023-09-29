@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react"
 import { useSelector, useDispatch } from 'react-redux';
-import { setFile, setPreviewUrl} from "../../store/fileSlice";
+import {setPreviewUrl} from "../../store/fileSlice";
 import { RootState } from "../../store/store";
 import './ImageUpload.styles.scss'
 
