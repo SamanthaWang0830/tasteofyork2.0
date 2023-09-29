@@ -1,0 +1,21 @@
+.restaurant-card{
+    width: 30%;
+    background-color: RGB(244,244,244);
+    margin: 0 0 40px 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img{
+        width: 100%;
+        height: 65%;
+    }
+    .open-map-button{
+        margin-top: 10px;
+        width: 50%;
+        background-color: #4285F4;
+        color: aliceblue;
+        border: none;
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,40 @@
+.flip-box {
+    width: 70%;
+    height: 100px;
+    padding: 20px;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+  
+    &.flipped {
+      transform: rotateX(180deg);
+    }
+  
+    .flip-box-inner {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s;
+      transform-style: preserve-3d;
+    }
+  
+    .flip-box-front,
+    .flip-box-back {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      backface-visibility: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+    }
+  
+    .flip-box-front {
+      background-color: #d00000; 
+      color: #f3f7f0;
+    }
+  
+    .flip-box-back {
+      background-color: #f3f7f0;
+      transform: rotateX(180deg);
+    }
+}

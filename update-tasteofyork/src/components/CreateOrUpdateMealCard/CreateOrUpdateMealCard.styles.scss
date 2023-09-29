@@ -1,0 +1,48 @@
+.create-meal-card{
+    position: relative; 
+    width: 30%;
+    background-color: rgb(244,244,244);
+    margin: 0 0 40px 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .closeUpdateMeal-button{
+        z-index: 5;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        background-color: rgb(83,0,0);
+        color: white;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 5px;
+        gap: 20px;
+        
+        input {
+            border: none;
+            border-bottom: 1px solid lightgray;
+            padding: 15px 10px;
+            width: 90%;
+        }
+        
+        button {
+          width: 50%;
+          padding: 10px;
+          margin-bottom: 5px;
+          border: none;
+          background-color: rgb(83,0,0);
+          color: white;
+          font-weight: bold;
+          cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,36 @@
+$primary-color: #6a040f;
+$font-color: #edf2f4;
+
+.box {
+    background-color: $primary-color;
+    padding: 0.5rem;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+
+    span {
+        color: $font-color;
+        margin-right: 1rem;
+
+        &:hover{
+            color: #cce6f4;
+        }
+    }
+
+    .right{
+        div{
+            display:inline-block;
+            text-align: center;
+            vertical-align: middle;
+        }
+    }
+
+    button {
+        padding: 10px;
+        border: none;
+        background-color: rgb(83,0,0);
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+    }
+}

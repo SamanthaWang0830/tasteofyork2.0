@@ -1,0 +1,17 @@
+.my-meals{
+    padding: 20px;
+    background-color: #040000;
+    display: flex;
+    flex-direction: column;
+    h2{
+        color: RGB(244,244,244);
+        text-align: center;
+    }
+    .meal-container{
+        padding: 30px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+}
