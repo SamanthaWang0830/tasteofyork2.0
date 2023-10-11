@@ -6,12 +6,16 @@ import ImageUpload from '../../components/ImageUpload/ImageUpload';
 import { login } from '../../store/userSlice';
 import { setPreviewUrl } from '../../store/fileSlice';
 import useHttpClient from '../../hooks/http-hook';
+import { validateEmail, validatePassword } from '../validation';
+import { useNavigate } from "react-router-dom"; 
+
 
 
 const RegisterPage: React.FC=()=>{
     // const file= useSelector((state: RootState)=>state.file.file)
     const dispatch= useDispatch()
-
+    const navigate = useNavigate();
+    const [error, setError]=useState("")
     const [file, setFile]= useState(null)
     const [inputs, setInputs] = useState({
         name: "",
@@ -24,6 +28,24 @@ const RegisterPage: React.FC=()=>{
 
     console.log(inputs)
 
+
+    const validateForm=()=>{
+      const emailValidateResult = validateEmail(inputs.email)
+      const passwordValidateError = validatePassword(inputs.password)
+      console.log(emailValidateResult)
+      if(inputs.email.length==0 || !emailValidateResult){
+          setError("Please enter a valid email")
+      }else if(inputs.password.length==0){
+          setError("Please enter a password")
+      }else if (passwordValidateError){
+          setError(passwordValidateError)
+      }else if(!file){
+          setError("Please select an image as the avatar")
+      }else{
+        return true
+      }
+  }
+
     const {sendRequest}= useHttpClient()
 
     const handleRegister = async (e: React.FormEvent<HTMLFormElement>)=> {
@@ -32,22 +54,22 @@ const RegisterPage: React.FC=()=>{
         if(file){
           data.append('image',file)
         }
-        try {
-          const responseData= await sendRequest(`${import.meta.env.VITE_BACKEND_URL}/users/signup`,"POST",data)
-          dispatch(login(responseData))
-          
-          // After successfully register
-          //clear the form
-          dispatch(setPreviewUrl(null))
-          setFile(null)
-          setInputs({
-            name: "",
-            email: "",
-            password: ""
-          })
-        } catch (err) {
-          console.log("wrong")
+        if(validateForm()){
+          try {
+            const responseData= await sendRequest(`${import.meta.env.VITE_BACKEND_URL}/users/signup`,"POST",data)
+            dispatch(login(responseData))
+            
+            // After successfully register
+            //clear the form
+            dispatch(setPreviewUrl(null))
+            setFile(null)
+            
+            navigate("/");
+          } catch (err) {
+            setError("Something went wrong, please try again later")
+          }
         }
+        
     };
     return (
     <div className="register">
@@ -89,6 +111,7 @@ const RegisterPage: React.FC=()=>{
             />
             <button type="submit">Register</button>
           </form>
+          <span>{error}</span>
         </div>
       </div>
     </div>

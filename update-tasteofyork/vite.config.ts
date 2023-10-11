@@ -1,6 +1,8 @@
+/// <reference types="vitest"/>
+/// <reference types="vite/client"/>
+
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import envCompatible from 'vite-plugin-env-compatible'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -9,5 +11,10 @@ export default defineConfig({
   ],
   server: {
     port: 3000
+  },
+  test:{
+    globals:true,
+    environment:'jsdom',
+    setupFiles:['./src/setupTests.ts']
   }
 })
